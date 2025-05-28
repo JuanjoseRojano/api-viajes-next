@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 export async function GET(request, { params }) {
     try {
         const { database } = await connectToDatabase();
-        const collection = database.collection(process.env.MONGODB_COLLECTION);
+        const collection = database.collection("viajes");
 
         const { id } = params;
         const viaje = await collection.findOne({ _id: new ObjectId(id) });
@@ -22,7 +22,7 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
     try {
         const { database } = await connectToDatabase();
-        const collection = database.collection(process.env.MONGODB_COLLECTION);
+        const collection = database.collection("viajes");
 
         const { id } = params;
         const datosActualizados = await request.json();
@@ -45,7 +45,7 @@ export async function PUT(request, { params }) {
 export async function DELETE(request, { params }) {
     try {
         const { database } = await connectToDatabase();
-        const collection = database.collection(process.env.MONGODB_COLLECTION);
+        const collection = database.collection("viajes");
 
         const { id } = params;
         const resultado = await collection.deleteOne({ _id: new ObjectId(id) });
