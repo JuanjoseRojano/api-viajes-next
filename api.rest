@@ -1,0 +1,64 @@
+# Ejemplos
+
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Eva", 
+    "edad": 20 
+}
+
+### 
+
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Eugenio", 
+    "edad": 21 
+}
+
+### 
+
+GET http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+###
+
+GET http://localhost:3000/api/users/6544f16661269657e5324e80 HTTP/1.1
+content-type: application/json
+
+###
+
+PUT http://localhost:3000/api/users/655a9b3e8b8747bc6a13a543 HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Pedro", 
+    "edad": 42
+}
+
+###
+
+DELETE http://localhost:3000/api/users/6544f16661269657e5324e80 HTTP/1.1
+content-type: application/json
+
+###
+
+DELETE https://nxapi-mongodb.vercel.app/api/users/6542da20c20d9ad95c739701 HTTP/1.1
+content-type: application/json
+
+### 
+
+POST https://nxapi-mongodb.vercel.app/api/users HTTP/1.1
+content-type: application/json
+
+{ 
+    "nombre": "Jose", 
+    "edad": 21 
+}
+
+### 
+
+DELETE https://nxapi-mongodb.vercel.app/api/users/65a007ce28c314bb5c1b5042
+content-type: application/json
