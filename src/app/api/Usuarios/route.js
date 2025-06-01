@@ -3,9 +3,9 @@ import { connectToDatabase } from "@/lib/mongodb"
 export async function GET(request) {
     try {
         const { database } = await connectToDatabase()
-        const collection = database.collection("usuarios")  // colección usuarios explícita
+        const collection = database.collection("usuarios")
 
-        const usuarios = await collection.find({}).toArray()  // todos los usuarios
+        const usuarios = await collection.find({}).toArray()
 
         return Response.json(usuarios, { status: 200 })
     } catch (error) {
@@ -18,9 +18,9 @@ export async function POST(request) {
         const { database } = await connectToDatabase()
         const collection = database.collection("usuarios")
 
-        const nuevoUsuario = await request.json()  // body json con datos del usuario
+        const nuevoUsuario = await request.json()
 
-        const resultado = await collection.insertOne(nuevoUsuario) // insert
+        const resultado = await collection.insertOne(nuevoUsuario)
 
         return Response.json({ message: "Usuario creado", usuarioId: resultado.insertedId }, { status: 201 })
     } catch (error) {

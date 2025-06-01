@@ -69,8 +69,6 @@ export async function DELETE(request, { params }) {
     }
 }
 
-// Opcionalmente un POST con id (no muy común, normalmente POST es sin id)
-// Si no lo necesitas, puedes omitir esta función
 export async function POST(request, { params }) {
     try {
         const { database } = await connectToDatabase()

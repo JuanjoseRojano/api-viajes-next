@@ -43,7 +43,7 @@ export async function GET(request, { params }) {
 
 export async function POST(request, { params }) {
     try {
-        const { id } = params // id del usuario
+        const { id } = params
         const nuevoViaje = await request.json()
 
         const { database } = await connectToDatabase()

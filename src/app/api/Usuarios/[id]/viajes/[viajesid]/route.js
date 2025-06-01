@@ -78,7 +78,7 @@ export async function POST(request, { params }) {
         }
 
         return new Response(
-            JSON.stringify({ message: "Viaje agregado", viajeId: nuevoViaje._id }),
+            JSON.stringify({ message: "Viaje agregado", viajeId: nuevoViaje._id.toString() }),
             { status: 201 }
         );
     } catch (error) {
@@ -92,6 +92,7 @@ export async function POST(request, { params }) {
 export async function PUT(request, { params }) {
     try {
         const { id, viajesid } = params;
+        console.log(id, viajesid)
         const updates = await request.json();
 
         if (!ObjectId.isValid(id) || !ObjectId.isValid(viajesid)) {
