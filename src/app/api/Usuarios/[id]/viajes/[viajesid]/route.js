@@ -62,6 +62,8 @@ export async function POST(request, { params }) {
         // Añadimos un _id al nuevo viaje para poder identificarlo luego
         nuevoViaje._id = new ObjectId();
 
+        console.log("Viaje que se va a insertar:", nuevoViaje);
+
         const { database } = await connectToDatabase();
         const collection = database.collection("usuarios");
 
