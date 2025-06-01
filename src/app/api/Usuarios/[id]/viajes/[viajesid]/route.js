@@ -61,15 +61,17 @@ export async function POST(request, { params }) {
 
         // Añadimos un _id al nuevo viaje para poder identificarlo luego
         nuevoViaje._id = new ObjectId();
-
-        console.log("Viaje que se va a insertar:", nuevoViaje);
+        // const nuevoViajeConId = {
+        //     id: new ObjectId(),
+        //     ...nuevoViaje
+        // }
 
         const { database } = await connectToDatabase();
         const collection = database.collection("usuarios");
 
         const resultado = await collection.updateOne(
             { _id: new ObjectId(id) },
-            { $push: { viajes: nuevoViaje } }
+            { $push: { viajes: nuevoViaje.id } }
         );
 
         if (resultado.matchedCount === 0) {

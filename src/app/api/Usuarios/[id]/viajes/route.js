@@ -49,10 +49,16 @@ export async function POST(request, { params }) {
         const { database } = await connectToDatabase()
         const collection = database.collection("usuarios")
 
+        // nuevoViaje._id = new ObjectId();
+        const nuevoViajeConId = {
+            id: new ObjectId(),
+            ...nuevoViaje
+        }
+
         // Agregar nuevo viaje al array "viajes" del usuario
         const resultado = await collection.updateOne(
             { _id: new ObjectId(id) },
-            { $push: { viajes: nuevoViaje } }
+            { $push: { viajes: nuevoViajeConId } }
         )
 
         if (resultado.matchedCount === 0) {
